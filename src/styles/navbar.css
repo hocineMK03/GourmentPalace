@@ -1,0 +1,62 @@
+
+
+
+.custom-navbar {
+    background-color: rgba(53, 53, 53, 0.2);
+    padding: 15px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    transition: background-color 0.3s ease;
+  }
+  
+  .logo {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+  
+  .nav-links {
+    display: flex;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    margin: 0 10px;
+    font-weight: bold;
+  }
+  
+  .login-link {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    margin: 0 10px;
+    font-weight: bold;
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .custom-navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .nav-links {
+      flex-direction: column;
+      margin-top: 10px;
+    }
+  
+    .login-link {
+      margin-top: 10px;
+    }
+  }
+  

@@ -1,0 +1,55 @@
+/* Add styles for .main-hero and adjust as needed */
+.main-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  margin-top: 50px;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+
+.main-intro {
+  text-align: center;
+  z-index: 2;
+  color: #fff; /* Text color */
+}
+
+.main-intro h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.main-intro h1 .gradient-text {
+  background: linear-gradient(90deg, #D63031 , #fd5a28 , #D63031 );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.main-intro p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.main-intro button {
+  padding: 8px 16px;
+  font-size: 1rem;
+  background-color: #D63031 ;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+
+}
+
+.main-intro button:hover{
+  transform: scale(1.1);
+  background-color: #c42c2c ;
+
+}
+

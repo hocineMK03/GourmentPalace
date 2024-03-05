@@ -1,0 +1,125 @@
+/* Add these styles to your existing stylesheet or style block */
+.form-container {
+    position: relative;
+    margin-top: 25px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #h2form {
+    margin-top: 10%;
+}
+
+  .form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .recipedetails {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: end;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+  }
+  
+  .smallerrecipedetails {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+  }
+  .smallerrecipedetails label{
+width: 100%;
+  }
+  
+  .ingredientsdetails {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+  }
+  
+  .smalleringredientsdetails {
+    display: flex;
+    gap: 5px;
+    
+  }
+  
+  .a {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Style for input fields */
+  .form-container input[type="text"],
+  textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+  }
+  .ingredientsdetails button{
+    width: 30%;
+    justify-self: center;
+    align-self: center;
+  }
+  /* Style for button */
+  .form-container form button{
+    width: 80%;
+    justify-self: center;
+    align-self: center;
+  }
+  .form-container button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .form-container button:hover {
+    background-color: #45a049;
+  }
+  
+
+  @media (max-width: 700px) {
+    .form-container {
+        margin-top: 20%;
+    }
+    .smallerrecipedetails {
+        flex-direction: column;
+    }
+
+    .smallerrecipedetails label {
+        width: auto;
+    }
+
+    .ingredientsdetails,
+    .smalleringredientsdetails,
+    .a {
+        flex-direction: column;
+    }
+    #h2form{
+        margin-top:20%;
+    }
+}@media (max-width: 500px) {
+  
+    #h2form{
+        margin-top:90%;
+    }
+    .form-container {
+        margin-top: 40%;
+    }
+}
