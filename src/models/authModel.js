@@ -2,7 +2,7 @@ const client=require('../db/dbconfig')
 
 class AuthModel{
     async checkPermession(userid){
-        const query="SELECT perm FROM permessions WHERE userid=$1 "
+        const query="SELECT is_admin FROM usertable WHERE userid=$1 "
         const result=await client.query(query,[userid])
         if(result.rowCount>0){
             return true

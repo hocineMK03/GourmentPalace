@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const authc=require('../controllers/authController');
 
-router.get('/chackperms',authc.handleAccess)
+router.get('/checkperms',authc.handleAccess)
 router.post('/login',authc.handleLogin)
 router.post('/register',authc.handleRegister)
 router.get('/logout',authc.handleLogOut)

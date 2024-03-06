@@ -3,12 +3,14 @@ const services=require('../services/authServices')
 class AuthControllers{
     async handleAccess(req,res,next){
         const sessiontoken = req.headers['sessiontoken'];
-        if(sessiontoken){
+        console.log("sessiontoken",sessiontoken)
+        console.log("typeof sessiontoken", typeof sessiontoken);
+        if(sessiontoken!==undefined && sessiontoken!==null && sessiontoken!=""  && sessiontoken){
     const result=services.checkAccess(sessiontoken)
     if(result){
-        next()
+        return res.status(200).json('user authorized')
     }
-    return res.status(400).json('ussser hass no access')
+    return res.status(400).json('user hass no access')
         }
         return res.status(404).json('couldnt indetify user')
     }

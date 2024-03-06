@@ -3,11 +3,11 @@ const utils=require('../utils/authutils')
 const uuid = require('uuid');
 class AuthServices{
 async checkAccess(session_token){
-    const useridInfo = await authmodels.getIdBysessiontoken(session_token);
+    const useridInfo = await models.getIdBysessiontoken(session_token);
     if (useridInfo && useridInfo.user_id){
 
-        const hasaccess=models.checkPermession(userid)
-        if(hasaccess){
+        const hasaccess=models.checkPermession(useridInfo.user_id)
+        if(hasaccess && hasaccess!==undefined){
             return true
         }
         return false
