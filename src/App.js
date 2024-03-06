@@ -6,12 +6,14 @@ import ExplorePage from './pages/explorepage';
 import AdminManagement from './pages/adminmanagement';
 import { useEffect, useState } from 'react';
 import authservice from './services/authservice';
+import Cookies from 'js-cookie';
 function App() {
   const [isAdmin, setIsAdmin] = useState(false); // Set this based on your authentication logic
 const checkAccess=()=>{
   console.log(isAdmin)
-
-  if(authservice.checkAccess()){
+const sessiontoken=Cookies.get('sessiontoken')
+if(sessiontoken){
+  if(authservice.checkPerms(sessiontoken)){
 
     setIsAdmin(true)
   }
@@ -19,6 +21,8 @@ const checkAccess=()=>{
     setIsAdmin(false)
   }
   console.log(isAdmin)
+}
+
 }
 useEffect(() => {
   checkAccess()

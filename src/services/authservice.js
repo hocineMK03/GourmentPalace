@@ -1,22 +1,7 @@
 
 const Cookies=require('js-cookie')
 class AuthService {
-  checkAccess(){
-  //  try{
-  //   const access=Cookies.get('access')
-  //   if(access==='true'){
-  //     return true
-  //   }
-  //   return false
-  //  }
-  //  catch(error){
-  //   return false
-  //  }
-
-
-  //don't have cookie yet
-  return true
-  }
+ 
   checkIfAuth(){
     const sessiontoken=Cookies.get('sessiontoken')
     const username=Cookies.get('username')
@@ -137,6 +122,30 @@ class AuthService {
         .catch(error => console.error('Error:', error));
       
     }
+
+    async checkPerms(sessiontoken) {
+      try {
+        const response = await fetch('http://127.0.0.1:5000/api/auth/checkperms', {
+          method: 'GET',
+          headers: {
+            'sessiontoken': sessiontoken, // Send the specific cookie in a custom header
+          },
+        });
+    
+    
+        if (response.status === 200) {
+          const data = await response.json();
+          console.log(data);
+          return true;
+        } else {
+          return false;
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        return false; // Handle the error and return false
+      }
+    }
+    
   }
   
   module.exports = new AuthService();
