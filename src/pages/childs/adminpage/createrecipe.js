@@ -192,11 +192,11 @@ setError('sorry something happenned, try again')
               
             </div>
           ))}
-          <button type="button" onClick={handleAddIngredient}>
+          <button id='btn1' type="button" onClick={handleAddIngredient}>
             Add Ingredient
           </button>
         </div>
-        <button type="button" onClick={SendForm}>
+        <button id='btn2' type="button" onClick={SendForm}>
 Post          </button>
 <p>{error}</p>
 

@@ -1,7 +1,6 @@
 
 const Cookies=require('js-cookie')
 class AuthService {
- 
   checkIfAuth(){
     const sessiontoken=Cookies.get('sessiontoken')
     const username=Cookies.get('username')
@@ -146,6 +145,31 @@ class AuthService {
       }
     }
     
+
+    async retreiveUsers(){
+      try {
+        const response = await fetch('http://127.0.0.1:5000/api/auth/getusers', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+              // Add any additional headers if needed
+              credentials: 'include',
+          },
+        });
+    
+    
+        if (response.status === 200) {
+          const data = await response.json();
+          console.log(data);
+          return data;
+        } else {
+          return null;
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        return false; // Handle the error and return false
+      }
+    }
   }
   
   module.exports = new AuthService();

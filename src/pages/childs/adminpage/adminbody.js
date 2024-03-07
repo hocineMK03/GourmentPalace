@@ -2,9 +2,16 @@ import React, { useState } from 'react';
 import { Tabs, Tab, NavDropdown } from 'react-bootstrap';
 import CreateRecipe from './createrecipe';
 import CreateIngredient from './createingredient';
+import DisplayUsers from './displayusers';
 const AdminBody = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
 const [whichdisplay,setWhichdisplay]=useState(1)
+
+
+
+
+
+
   const handleTabClick = (eventKey) => {
     setOpenDropdown(eventKey);
   };
@@ -17,7 +24,10 @@ const [whichdisplay,setWhichdisplay]=useState(1)
         setWhichdisplay(1)
     }
     else if(eventKey==="ingredient-1"){
-        setWhichdisplay(5)
+        setWhichdisplay(4)
+    }
+    else if(eventKey==="user-1"){
+      setWhichdisplay(7)
     }
     else{
         setWhichdisplay(1)
@@ -27,15 +37,18 @@ const [whichdisplay,setWhichdisplay]=useState(1)
     if(whichdisplay===1){
         return <CreateRecipe />
     }
-    else if(whichdisplay===5){
+    else if(whichdisplay===4){
       return <CreateIngredient />
+    }
+    else if(whichdisplay===7){
+      return <DisplayUsers />
     }
     else{
 
     }
   }
   return (
-    <div>
+    <div className='admin-container'>
       <div className='tabs'>
         <Tabs
           defaultActiveKey="profile"

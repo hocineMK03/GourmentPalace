@@ -10,10 +10,9 @@ import authservice from '../../../services/authservice';
 import RecipeDetails from './recipedetails';
 import {useNavigate } from 'react-router-dom';
 
-const ExploreBody = () => {
+const ExploreBody = ({searchQuery,recipes,setRecipes}) => {
   const navigate = useNavigate();
 
-  const [recipes, setRecipes] = useState([]);
   const [particularRecipe,setParticularRecipe]=useState(null)
   const [cansend,setCansend]=useState(false)
   useEffect(() => {

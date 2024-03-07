@@ -32,7 +32,7 @@ return (
     <Router>
   
       <Routes>
-      <Route path="/home" element={<LandingPage/>}/>
+      <Route path="/home" element={<LandingPage isAdmin={isAdmin}/>}/>
       <Route path="/login" element={<LoginPage />}/> 
       <Route path="/register" element={<RegisterPage />}/>
 

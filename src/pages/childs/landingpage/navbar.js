@@ -4,7 +4,7 @@ import '../../../styles/navbar.css';
 import Cookies from 'js-cookie';
 import authservice from '../../../services/authservice';
 
-const NavbarFunc = ({isAuth,setIsAuth}) => {
+const NavbarFunc = ({isAuth,setIsAuth,isAdmin}) => {
   const setUpLogOut=()=>{
     const sessiontoken = Cookies.get('sessiontoken')
     authservice.logOutRequest(sessiontoken)
@@ -22,13 +22,20 @@ setIsAuth(false)
         
         {isAuth? (
           <Nav className="mx-auto">
-           <Nav.Link href="#">Explore</Nav.Link>
+           <Nav.Link href="/explore">Explore</Nav.Link>
            <Nav.Link href="#">About</Nav.Link>
            <Nav.Link href="#">Services</Nav.Link>
+           {isAdmin && 
+        
+        <Nav.Link href="/dashboard" className="login-link">
+          Dashboard
+        </Nav.Link>
+      
+        }
            </Nav>
         ) : (
           <Nav className="mx-auto">
-          <Nav.Link href="/explore">Home</Nav.Link>
+          <Nav.Link href="/home">Home</Nav.Link>
           <Nav.Link href="#">About</Nav.Link>
           <Nav.Link href="#">Services</Nav.Link>
           </Nav>
@@ -47,7 +54,7 @@ setIsAuth(false)
           </Nav.Link>
         </Nav>
         )}
-        
+       
       </Navbar.Collapse>
     </Navbar>
   );

@@ -1,6 +1,7 @@
 const Cookies=require('js-cookie')
 
 class  DataHandling{
+  
   async retreiveIngredients(){
     try {
       const response = await fetch('http://127.0.0.1:5000/api/handleing/getingredients', {
@@ -84,11 +85,32 @@ class  DataHandling{
           throw error;
         }
       }
+      async retrieveSearchedRecipes(searchQuery) {
+        console.log(searchQuery);
+        try {
+          const response = await fetch(`http://127.0.0.1:5000/api/v1/getreceipes?searchquery=${searchQuery}`, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              // Add any additional headers if needed
+            },
+            credentials: 'include', // Include cookies in the request
+          });
       
-    async retreiveSearchedRecipes(){
-        
-    }
-     
+          if (response.ok) {
+            const responseData = await response.json();
+            console.log(responseData);
+            return responseData; // Return the data if the response is okay
+          } else {
+            console.error('Error during API request:', response.status);
+            return null;
+          }
+        } catch (error) {
+          console.error('Error during API request:', error.message);
+          throw error;
+        }
+      }
+      
     
     async updateRecipeRating(recipe_id,rating){
       try {

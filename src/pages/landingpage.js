@@ -7,7 +7,7 @@ import MoreFeatures from './childs/landingpage/morefeatures';
 import RegisterNow from './childs/landingpage/registernow';
 import Footer from './childs/landingpage/footer';
 import authservice from '../services/authservice';
-const LandingPage = () => {
+const LandingPage = ({isAdmin}) => {
   const [heroHeight, setHeroHeight] = useState(0);
   const [isAuth,setIsAuth]=useState(false)
   useLayoutEffect(() => {
@@ -34,7 +34,7 @@ const LandingPage = () => {
   });
   return (
     <div>
-      <NavbarFunc isAuth={isAuth} setIsAuth={setIsAuth}/>
+      <NavbarFunc isAuth={isAuth} setIsAuth={setIsAuth} isAdmin={isAdmin}/>
       <HeroSection />
       <div className="container--features" style={{ marginTop: isResponsive ? heroHeight / 2 + 20 : 0 }}>
         <PrimaryFeatures />

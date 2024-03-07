@@ -2,6 +2,10 @@ import React from 'react'
 
 const Footer = () => {
   const footerStyle = {
+    position: 'fixed',
+    left: 0,
+    bottom: 0,
+    width: '100%',
     backgroundColor: '#333',
     color: '#fff',
     padding: '20px 0',

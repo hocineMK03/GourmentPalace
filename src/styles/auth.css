@@ -171,3 +171,21 @@ body, html {
         width: 100%; /* Make the form full-width on smaller screens */
     }
 }
+
+@media (max-height:650px){
+    .form{
+        height: 100vh;
+    }
+    .input-container{
+        width: 50%;
+    }
+}
+
+@media (max-height:400px){
+
+    .form{
+        height: 120vh;
+     
+    }
+    
+}
