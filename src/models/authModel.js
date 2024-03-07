@@ -76,5 +76,11 @@ async registerUser(name,email,password){
         return null; // Return null or handle the error according to your application's logic
     }
 }
+
+async getUsers(){
+    const query="SELECT username,email,lastlogin,registration,isverified,is_admin FROM usertable"
+    const result=await client.query(query)
+    return result.rows
+}
 }
 module.exports=new AuthModel

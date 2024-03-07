@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const authc=require('../controllers/authController');
 
+const authc=require('../controllers/authController');
+router.get('/getusers',authc.handleRetreiveUsers)
 router.get('/checkperms',authc.handleAccess)
 router.post('/login',authc.handleLogin)
 router.post('/register',authc.handleRegister)

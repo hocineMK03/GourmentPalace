@@ -14,6 +14,22 @@ class AuthControllers{
         }
         return res.status(404).json('couldnt indetify user')
     }
+
+        async handleRetreiveUsers(req,res){
+            try{
+                const result=services.retreiveUsers()
+                if(result){
+                    return res.status(200).json(result)
+                }
+                return res.status(400).json('couldnt retreive the data')
+
+            }
+            catch(error){
+                return res.status(500).json('internal error')
+            }
+        }
+
+
     async handleLogOut(req,res){
         const sessiontoken = req.get('sessiontoken')
         const result=await services.handleLogOutService(sessiontoken)

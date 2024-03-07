@@ -2,6 +2,18 @@ const models=require('../models/authModel')
 const utils=require('../utils/authutils')
 const uuid = require('uuid');
 class AuthServices{
+    async retreiveUsers(){
+        try{
+            const result=models.getUsers()
+            if(result){
+                return result
+            }
+            return null
+        }
+        catch(error){
+            return null
+        }
+    }
 async checkAccess(session_token){
     const useridInfo = await models.getIdBysessiontoken(session_token);
     if (useridInfo && useridInfo.user_id){
