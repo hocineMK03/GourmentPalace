@@ -7,6 +7,7 @@ import AdminManagement from './pages/adminmanagement';
 import { useEffect, useState } from 'react';
 import authservice from './services/authservice';
 import Cookies from 'js-cookie';
+import NotFound from './pages/notfound';
 function App() {
   const [isAdmin, setIsAdmin] = useState(false); // Set this based on your authentication logic
 const checkAccess=()=>{
@@ -37,10 +38,10 @@ return (
       <Route path="/register" element={<RegisterPage />}/>
 
       <Route path="/explore" element={<ExplorePage/>}/>
-
+      <Route path="*" element={<NotFound/>}/>
       {isAdmin && <Route path="/dashboard" element={<AdminManagement />} />}
             </Routes>
-  
+           
   </Router>
   );
 }

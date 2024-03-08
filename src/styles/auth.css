@@ -176,9 +176,7 @@ body, html {
     .form{
         height: 100vh;
     }
-    .input-container{
-        width: 50%;
-    }
+   
 }
 
 @media (max-height:400px){

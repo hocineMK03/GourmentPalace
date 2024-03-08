@@ -14,7 +14,6 @@ const ExplorePage = () => {
       <NavbarFunc />
       <FilterSearch searchQuery={searchQuery} setSearchQuery={setSearchQuery} setRecipes={setRecipes}/>
       <ExploreBody  recipes={recipes} setRecipes={setRecipes} />
-      <Footer />
     </div>
   );
 };

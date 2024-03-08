@@ -1,5 +1,6 @@
 
 const Cookies=require('js-cookie')
+const ipadress = process.env.REACT_APP_BACKEND_IP || 'http://127.0.0.1:5000';
 class AuthService {
   checkIfAuth(){
     const sessiontoken=Cookies.get('sessiontoken')
@@ -44,8 +45,8 @@ class AuthService {
     async LoginRequest(datastate) {
       try {
         const body = this.deconstructForLogin(datastate);
-    
-        const response = await fetch('http://127.0.0.1:5000/api/auth/login', {
+        let url="/api/auth/login"
+        const response = await fetch(ipadress+url, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -80,7 +81,8 @@ class AuthService {
       try {
         const body = this.deconstructForRegister(datastate);
   console.log(body)
-        const response = await fetch('http://127.0.0.1:5000/api/auth/register', {
+  let url='/api/auth/register'
+        const response = await fetch(ipadress+url, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -110,7 +112,8 @@ class AuthService {
     }
 
     async logOutRequest(sessiontoken){
-      fetch('http://127.0.0.1:5000/api/auth/logout', {
+      let url='/api/auth/logout'
+      fetch(ipadress+url, {
         method: 'GET',
         headers: {
           'sessiontoken': sessiontoken, // Send the specific cookie in a custom header
@@ -123,8 +126,9 @@ class AuthService {
     }
 
     async checkPerms(sessiontoken) {
+      let url='/api/auth/checkperms'
       try {
-        const response = await fetch('http://127.0.0.1:5000/api/auth/checkperms', {
+        const response = await fetch(ipadress+url, {
           method: 'GET',
           headers: {
             'sessiontoken': sessiontoken, // Send the specific cookie in a custom header
@@ -147,8 +151,9 @@ class AuthService {
     
 
     async retreiveUsers(){
+      let url='/api/auth/getusers'
       try {
-        const response = await fetch('http://127.0.0.1:5000/api/auth/getusers', {
+        const response = await fetch(ipadress+url, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

@@ -1,10 +1,12 @@
 const Cookies=require('js-cookie')
+const ipadress = process.env.REACT_APP_BACKEND_IP || 'http://127.0.0.1:5000';
 
 class  DataHandling{
   
   async retreiveIngredients(){
+    let url='/api/handleing/getingredients'
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/handleing/getingredients', {
+      const response = await fetch(ipadress+url, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -28,10 +30,11 @@ class  DataHandling{
     }
   }
     async postARecipe(therecipestate){
+      let url='/api/v1/createrecipe'
       try {
         const body =therecipestate
     
-        const response = await fetch('http://127.0.0.1:5000/api/v1/createrecipe', {
+        const response = await fetch(ipadress+url, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -61,8 +64,9 @@ class  DataHandling{
       }
     }
     async retrieveAllRecipes() {
+      let url='/api/v1/getreceipes'
         try {
-          const response = await fetch('http://127.0.0.1:5000/api/v1/getreceipes', {
+          const response = await fetch(ipadress+url, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
@@ -86,9 +90,10 @@ class  DataHandling{
         }
       }
       async retrieveSearchedRecipes(searchQuery) {
+        let url='/api/v1/getreceipes?searchquery='+searchQuery
         console.log(searchQuery);
         try {
-          const response = await fetch(`http://127.0.0.1:5000/api/v1/getreceipes?searchquery=${searchQuery}`, {
+          const response = await fetch(ipadress+url, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
@@ -114,13 +119,13 @@ class  DataHandling{
     
     async updateRecipeRating(recipe_id,rating){
       try {
-        
+        let url='/api/rating/assignrating'
         const body={
         recipe_id: recipe_id,
         rating: rating
       };
       const sessionToken = Cookies.get('sessiontoken');
-        const response = await fetch('http://127.0.0.1:5000/api/rating/assignrating', {
+        const response = await fetch(ipadress+url, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
